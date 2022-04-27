@@ -1,15 +1,50 @@
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
 }
 
-html,
-body {
+.container {
+  min-height: 100vh;
+  min-width: 100vw;
   overflow-x: hidden;
-  height: 100vh;
-  background: url(/src/img/pizza-background.jpg);
+  box-sizing: border-box;
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
 }
 
-.hidden {
-  display: none;
+.header {
+  display: flex;
+  height: 10vh;
+  width: 100vw;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+.container-main {
+  display: flex;
+  width: 100vw;
+}
+
+.aside-bar {
+  height: 85vh;
+  width: 20vw;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  height: 85vh;
+  width: 80vw;
+  border: 1px solid black;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  line-height: 2rem;
 }
