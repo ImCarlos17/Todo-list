@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  height: 100vh;
+  background: url(/src/img/pizza-background.jpg);
+}
+
+.hidden {
+  display: none;
+}
