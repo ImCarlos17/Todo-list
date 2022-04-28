@@ -8,19 +8,35 @@
   <body>
     <div class="container">
       <div class="header">
-        <h1>To-do List</h1>
+        <h1>To-Do List</h1>
+        <i class="fi fi-br-notebook icon-flat-header"></i>
       </div>
       <div class="container-main">
         <div class="aside-bar">
-          <h2>Home</h2>
-          <button>All task</button>
-          <button>Today</button>
-          <button>This week</button>
+          <h2 class="aside-title">Home</h2>
+          <button class="aside-btns">
+            <i class="fi fi-br-list-check icon-flat"></i>
+            All task
+          </button>
+          <button class="aside-btns">
+            <i class="fi fi-br-calendar icon-flat"></i>
+            Today
+          </button>
+          <button class="aside-btns">
+            <i class="fi fi-sr-calendar icon-flat"></i>
+            This week
+          </button>
 
-          <h2>Projects</h2>
-          <button>Add Project</button>
+          <h2 class="aside-title project-title">Projects</h2>
+          <button class="aside-btns">
+            <i class="fi fi-br-add icon-flat"></i>
+            Add Project
+            <i class="fi fi-br-cross-small icon-flat"></i>
+          </button>
         </div>
-        <div class="main">Main</div>
+        <div class="main">
+          <div class="main-content"></div>
+        </div>
       </div>
       <div class="footer"><p>Copyright &copy The Odin Project 2022</p></div>
     </div>

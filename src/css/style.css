@@ -1,6 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Orelega+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+
+@import url("https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css");
+@import url("https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css");
+
 * {
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
 }
 
 .container {
@@ -8,7 +15,6 @@
   min-width: 100vw;
   overflow-x: hidden;
   box-sizing: border-box;
-  background-color: gray;
   display: flex;
   flex-direction: column;
 }
@@ -19,6 +25,10 @@
   width: 100vw;
   align-items: center;
   padding-left: 1rem;
+  font-family: "Orelega One", cursive;
+  background-color: #0b2239;
+  color: white;
+  font-size: 1.4rem;
 }
 
 .container-main {
@@ -27,24 +37,74 @@
 }
 
 .aside-bar {
+  font-family: "Josefin Sans", sans-serif;
   height: 85vh;
-  width: 20vw;
-  border: 1px solid black;
+  width: 18vw;
   display: flex;
   flex-direction: column;
+  padding: 1rem;
+  padding-left: 1.5rem;
+  padding-top: 1.5rem;
+  background-color: rgba(68, 68, 68, 0.288);
+}
+
+.aside-btns {
+  width: 80%;
+  height: 2rem;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.2rem;
+  background: rgb(0, 0, 0, 0);
+  border: none;
+  text-align: left;
+  padding-left: 0.5rem;
+}
+
+.icon-flat {
+  font-size: 0.9rem;
+}
+
+.icon-flat-header {
+  margin-left: 1rem;
+  font-size: 2rem;
+}
+
+.aside-title {
+  padding-bottom: 0.5rem;
+  font-size: 1;
+}
+
+.project-title {
+  padding-top: 1rem;
+}
+
+.aside-btns:hover {
+  background: rgb(0, 0, 0, 0.5);
+  border-radius: 6px;
 }
 
 .main {
   height: 85vh;
-  width: 80vw;
-  border: 1px solid black;
+  width: 82vw;
+  background-color: rgba(68, 68, 68, 0.158);
+  display: flex;
+  justify-content: center;
+}
+
+.main-content {
+  height: 100%;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
 }
 
 .footer {
+  height: 5vh;
   display: flex;
   justify-content: center;
-  text-align: center;
-  align-content: center;
-  align-items: center;
-  line-height: 2rem;
+  line-height: 2.8rem;
+  font-family: "Orelega One", cursive;
+  font-size: 1.2rem;
+  background-color: #0b2239;
+  color: white;
 }
