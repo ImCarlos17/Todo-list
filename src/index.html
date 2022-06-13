@@ -12,42 +12,128 @@
   <body>
     <div class="container">
       <div class="header">
-        <h1>To-Do List</h1>
+        <h1 id="header__title">To-do List</h1>
         <i class="fa-solid fa-book icon-flat-header"></i>
       </div>
-      <div class="container-main">
-        <div class="aside-bar">
-          <h2 class="aside-title">Home</h2>
-          <button class="aside-btns">
-            <i class="fa-solid fa-calendar-plus"></i>
-            New task
-          </button>
-          <button class="aside-btns">
-            <i class="fa-solid fa-calendar-day"></i>
-            Today
-          </button>
-          <button class="aside-btns">
-            <i class="fa-solid fa-calendar-week"></i>
-            This week
-          </button>
-          <button class="aside-btns">
-            <i class="fa-solid fa-list-check"></i>
-            All task
-          </button>
 
-          <h2 class="aside-title project-title">Projects</h2>
-          <button class="aside-btns">
-            <i class="fa-solid fa-circle-plus"></i>
-            Add Project
-            <i class="fa-solid fa-xmark"></i>
+      <div class="main">
+        <div class="left-side">
+          <h2 class="aside-title" id="first-title-aside">Home</h2>
+          
+          <button class="btns-aside" id="btn-inbox">
+            <i class="fa-solid fa-calendar-day"></i>
+            <p id="name-btn-inbox">Inbox</p>
+            
           </button>
+          <div class="projects">
+            <h2 class="aside-title" id="second-title-aside">Projects</h2>
+          </div>
+          <button class="btns-aside btn-add-project">
+            <i class="fa-solid fa-circle-plus"></i>
+            <p id="name-btn-project">Add Project</p>
+          </button>
+          <div id="new-projects"></div>
         </div>
-        <div class="main">
-          <div class="main-content"></div>
+
+        <div class="rigth-side">
+          <div class="container-project">
+            <div class="project-title"></div>
+            <div class="task-header">
+              <div>Title</div>
+              <div>Description</div>
+              <div>Due Date</div>
+              <div>Priority</div>
+            </div>
+            <div class="project__content">
+              
+            </div>
+            <div class="div__buttonAddTask">
+              <button  class="btns-aside" id="add-task">
+                <i class="fa-solid fa-plus icon-header"></i>
+                <p id="name-btn-task">Task</p>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="footer"><p>Copyright &copy The Odin Project 2022</p></div>
+
+      <div class="footer"><p id="footer-text">Copyright &copy; The Odin Project 2022</p></div>
     </div>
+
+    <div class="modal hidden" id="add-task-modal">
+      <div class="modal_container modal_newTask">
+        <form  class="form" id="form_task">
+          <div class="form_header">New Task</div>
+          <div class="form_container-data">
+            <div class="form_side-left">
+              <label for="title">Title:</label>
+              <div>
+                <input type="text" name="title" id="title" required/>
+              </div>
+              <label for="description">Description:</label>
+              <div>
+                <input type="text" name="description" id="description" required/>
+              </div>
+
+            </div>
+
+            <div class="form_side-right">
+              <label for="date">Due Date:</label>
+             <div>
+               <input type="date" name="date" id="date" required/>
+             </div>
+              <label >Priority:</label>
+             <div>
+               <input type="radio" name="priority" id="priority-low" value="Low" required>
+               <label for="priority-low">Low</label>
+   
+               <input type="radio" name="priority" id="priority-medium" value="Medium" required>
+               <label for="priority-medium">Medium</label>
+   
+               <input type="radio" name="priority" id="priority-high" value="High" required>
+               <label for="priority-high">High</label>
+             </div>
+              
+            </div>
+          </div>
+          <div class="modal_container-buttons">
+            <button class="modal_button btn-cancel" id="btn-cancel-add-task">Cancel</button>
+            <button class="modal_button" type="submit" id="modal_btn-add-task">+ Add Task</button>
+          </div>
+        </div>
+    </div>
+
+    <div class="modal hidden" id="add-project-modal">
+      <div class="modal_container">
+        <form  class="form" id="form_project">
+          <div class="form_header">New Project</div>
+          <label for="title">Title:</label>
+          <div>
+            <input type="text" name="name_project" id="title" required />
+          </div>
+          <div class="modal_container-buttons">
+            <button class="modal_button btn-cancel" id="btn-cancel-project" >Cancel</button>
+            <button class="modal_button" type="submit" id="modal_btn-add-project">+ Add Project</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="modal hidden" id="description-modal">
+       <div class="modal_description">
+
+          <div class="modal_header">
+            <div class="modal_header_title">Description</div>
+            
+          </div>
+          
+            <div class="content-description" >Description</div>
+            
+        </div>
+      
+    </div>
+    </div>
+
     <script src="/src/js/script.js" type="module"></script>
   </body>
 </html>

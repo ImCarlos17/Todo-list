@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Orelega+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+/* Fonts
+Josefin Sans
+Orelega One
+*/
 
 * {
   margin: 0px;
@@ -10,98 +14,290 @@
 .container {
   min-height: 100vh;
   min-width: 100vw;
-  overflow-x: hidden;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .header {
   display: flex;
+  min-width: 100vw;
   height: 10vh;
-  width: 100vw;
-  align-items: center;
-  padding-left: 1rem;
-  font-family: "Orelega One", cursive;
   background-color: #0b2239;
   color: white;
+  font-family: "Orelega One";
+  align-items: center;
   font-size: 1.4rem;
-}
-
-.container-main {
-  display: flex;
-  width: 100vw;
-}
-
-.aside-bar {
-  font-family: "Josefin Sans", sans-serif;
-  height: 85vh;
-  width: 18vw;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  padding-left: 2rem;
-  padding-top: 1.5rem;
-  background-color: rgba(68, 68, 68, 0.288);
-}
-
-.aside-btns {
-  width: 80%;
-  height: 2rem;
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 1.2rem;
-  background: rgb(0, 0, 0, 0);
-  border: none;
-  text-align: left;
-  padding-left: 0.5rem;
-}
-
-.icon-flat {
-  font-size: 0.9rem;
-}
-
-.icon-flat-header {
-  margin-left: 1rem;
-  font-size: 2rem;
-}
-
-.aside-title {
-  padding-bottom: 0.5rem;
-  font-size: 1;
-}
-
-.project-title {
-  padding-top: 1rem;
-}
-
-.aside-btns:hover {
-  background: rgb(0, 0, 0, 0.5);
-  border-radius: 6px;
+  gap: 1rem;
 }
 
 .main {
-  height: 85vh;
-  width: 82vw;
-  background-color: rgba(68, 68, 68, 0.158);
   display: flex;
-  justify-content: center;
+  background-color: goldenrod;
+  width: 100vw;
 }
-
-.main-content {
-  height: 100%;
-  width: 50vw;
+.left-side {
   display: flex;
   flex-direction: column;
-  padding: 3rem;
+  width: 15vw;
+  height: 85vh;
+  background-color: rgb(212, 209, 209);
+  padding: 1rem;
+}
+
+.left-side .aside-title {
+  font-family: "Josefin Sans";
+  margin-bottom: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.btns-aside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  width: 80%;
+  height: 1.5rem;
+  font-family: "Josefin Sans";
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid;
+  margin-bottom: 0.5rem;
+  background: rgb(255, 255, 255);
+  margin-left: 0.5rem;
+}
+
+.btns-aside:hover {
+  background: rgba(0, 0, 0, 0.137);
+  border-radius: 6px;
+  width: 82%;
+}
+
+.btns-project {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+  gap: 0.8rem;
+  width: 60%;
+  height: 1.5rem;
+  font-family: "Josefin Sans";
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid;
+  margin-bottom: 0.5rem;
+  background: rgb(255, 255, 255);
+}
+
+.btns-project:hover {
+  background: rgb(77, 224, 9);
+  border-radius: 6px;
+  width: 67%;
+}
+
+.btn-delete {
+  cursor: pointer;
+  margin-left: 0.3rem;
+}
+
+.rigth-side {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 85vw;
+  padding: 2rem;
+}
+
+.rigth-side .container-project {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.container-project .project-title {
+  font-family: Orelega One;
+  font-size: 2rem;
+  padding: 0.8rem;
+}
+
+.container-project .task-header {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 1.3rem;
+  font-family: Josefin Sans;
+}
+
+.container-project .container-task {
+  display: flex;
+  padding-left: 1rem;
+  padding-right: 0rem;
+  margin-left: 7rem;
+  width: 83%;
+  height: 2rem;
+  border-radius: 10px;
+  align-items: center;
+  background-color: rgb(212, 209, 209);
+  margin-bottom: 0.5rem;
+}
+
+.container-project .task__wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-right: 1.5rem;
+}
+
+.container-project .task__description {
+  cursor: pointer;
+}
+
+.container-project .div__buttonAddTask {
+  width: 10rem;
+  margin-top: 0.5rem;
 }
 
 .footer {
-  height: 5vh;
   display: flex;
-  justify-content: center;
-  line-height: 2.8rem;
-  font-family: "Orelega One", cursive;
+  height: 5vh;
+  width: 100vw;
+  color: white;
+  font-family: "Orelega One";
   font-size: 1.2rem;
   background-color: #0b2239;
-  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  opacity: 0;
+  visibility: "hidden";
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_container {
+  width: 20%;
+  height: 20vh;
+  text-align: center;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgb(212, 209, 209);
+  font-family: Josefin Sans;
+  font-size: 1.2rem;
+}
+
+.hidden {
+  transform: translateY(-200%);
+}
+
+.modal_newTask {
+  height: 28vh;
+  width: 30vw;
+}
+
+.modal_container .form {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  gap: 1.5rem;
+  padding: 0.5rem;
+}
+
+.form .form_container-data {
+  display: flex;
+  justify-content: space-evenly;
+  height: 20vh;
+}
+
+.form .form_side-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.form .form_side-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.form .modal_container-buttons {
+  margin-top: 1rem;
+}
+
+#description-modal .modal_header {
+  display: flex;
+  justify-content: center;
+}
+
+.low-priority {
+  color: blue;
+}
+
+.medium-priority {
+  color: green;
+}
+
+.high-priority {
+  color: red;
+}
+
+.modal_description {
+  width: 20%;
+  height: 20vh;
+  text-align: center;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  transition: 1s;
+  transform: translateY(0%);
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgb(212, 209, 209);
+  font-family: Josefin Sans;
+  font-size: 1.2rem;
+}
+
+.modal_description .modal_header_title {
+  padding-bottom: 3rem;
+}
+
+.modal_button {
+  width: 7rem;
+  height: 1.5rem;
+  font-family: "Josefin Sans";
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid;
+  margin-bottom: 0.5rem;
+  background: rgb(255, 255, 255);
+  margin-left: 0.5rem;
+}
+
+.modal_button:hover {
+  background: rgba(53, 255, 26, 0.664);
+  width: 7.5rem;
+}
+.form .btn-cancel:hover {
+  background: rgba(255, 23, 23, 0.918);
+  width: 7.5rem;
 }
