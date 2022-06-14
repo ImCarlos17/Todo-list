@@ -70,7 +70,6 @@ Orelega One
 .btns-aside:hover {
   background: rgba(0, 0, 0, 0.137);
   border-radius: 6px;
-  width: 82%;
 }
 
 .btns-project {
@@ -92,7 +91,6 @@ Orelega One
 .btns-project:hover {
   background: rgb(77, 224, 9);
   border-radius: 6px;
-  width: 67%;
 }
 
 .btn-delete {

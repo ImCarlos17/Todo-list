@@ -21,6 +21,8 @@ const moduleView = (() => {
   const INIT_PROJECTS_LIST = "INIT_PROJECTS_LIST";
   const NOTIFY_NEW_TASK = "NOTIFY_NEW_TASK";
   const GET_ACTUAL_PROJECT = "GET_ACTUAL_PROJECT";
+  const INIT_ACTUAL_PROJECT = "INIT_ACTUAL_PROJECT";
+  const RENDER_TASKS_TITLE = "RENDER_TASKS_TITLE";
 
   const showModal = (modal) => {
     modal.style.opacity = "1";
@@ -57,8 +59,8 @@ const moduleView = (() => {
     });
   })();
 
-  let project;
   const actualProject = (() => {
+    let project;
     const get = () => project;
 
     const set = (title) => {
@@ -70,11 +72,13 @@ const moduleView = (() => {
   })();
 
   const projectController = (() => {
+    const clearContainerTasks = () => (contentProject.innerHTML = "");
+
     const appendProject = (project) => {
       containerProjects.appendChild(project);
     };
 
-    const renderTitleProject = (title) => {
+    const renderTitleProject = (msg, { title }) => {
       projectTitle.textContent = title;
     };
 
@@ -105,21 +109,21 @@ const moduleView = (() => {
       });
 
       projectElementHtml.addEventListener("click", (e) => {
-        renderTitleProject(project.title);
         actualProject.set(project.title);
+
+        clearContainerTasks();
         PubSub.publish(GET_ACTUAL_PROJECT, actualProject.get());
+        PubSub.publish(INIT_ACTUAL_PROJECT, actualProject.get());
       });
 
       appendProject(projectElementHtml);
     };
 
-    const clearContainerTasks = () => (contentProject.innerHTML = "");
-
     const renderProjectList = (msg, projectList) => {
       projectList.map((project) => renderProject(project));
     };
 
-    const renderProjectTask = (msg, tasks) => {
+    const renderProjectTask = (msg, { tasks }) => {
       tasks.map(renderTask);
     };
 
@@ -142,11 +146,9 @@ const moduleView = (() => {
       UID: uid(),
     });
 
-    projectController.renderTitleProject(projectObject.title);
     projectController.renderProject(projectObject);
     actualProject.set(projectObject.title);
     PubSub.publish(NOTIFY_NEW_PROJECT, projectObject);
-
     projectForm.reset();
     const desactiveModal = hiddenModal(modalProject);
   });
@@ -175,6 +177,8 @@ const moduleView = (() => {
   });
 
   PubSub.subscribe(INIT_PROJECTS_LIST, projectController.renderProjectList);
+  PubSub.subscribe(RENDER_TASKS_TITLE, projectController.renderTitleProject);
+  PubSub.subscribe(RENDER_TASKS_TITLE, projectController.renderProjectTask);
 })();
 
 export default moduleView;

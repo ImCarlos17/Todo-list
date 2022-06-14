@@ -12,7 +12,6 @@ let actualProject;
 
 const setActualProject = (msg, project) => {
   actualProject = project;
-  console.log(actualProject);
 };
 
 const setContentModalDescription = (text) => {
@@ -63,7 +62,6 @@ const elementToDo = ({ UID, title, description, dueDate, priority }) => {
       type: "click",
       function: (e) => {
         deleteElement(containerTask);
-        console.log(actualProject);
         PubSub.publish(REMOVE_TASK, {
           projectName: actualProject,
           taskUID: e.path[1].id,

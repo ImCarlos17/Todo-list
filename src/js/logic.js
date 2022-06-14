@@ -11,6 +11,8 @@ const moduleLogic = (() => {
   const GET_ACTUAL_PROJECT = "GET_ACTUAL_PROJECT";
   const REMOVE_PROJECT = "REMOVE_PROJECT";
   const REMOVE_TASK = "REMOVE_TASK";
+  const RENDER_TASKS_TITLE = "RENDER_TASKS_TITLE";
+  const INIT_ACTUAL_PROJECT = "INIT_ACTUAL_PROJECT";
 
   let actualProject;
 
@@ -26,15 +28,12 @@ const moduleLogic = (() => {
     } else {
       projectList = [];
     }
-
     PubSub.publish(INIT_PROJECTS_LIST, projectList);
-    console.log(projectList);
   };
 
   const addProjectToList = (msg, project) => {
     projectList.push(project);
     PubSub.publish(UPDATE_STORAGE_PROJECTS, projectList);
-    console.log(projectList);
   };
 
   const getProject = (name) => {
@@ -58,23 +57,76 @@ const moduleLogic = (() => {
     PubSub.publish(UPDATE_STORAGE_PROJECTS, newProjectList);
   };
 
-  const getProjectTask = (projectName) => {
-    const tasks = getProject(projectName).tasks;
-    return tasks;
-  };
-
   const removeTask = (msg, { projectName, taskUID }) => {
     const project = getProject(projectName);
     project.deleteTask(taskUID);
-    console.log(project);
     PubSub.publish(UPDATE_STORAGE_PROJECTS, projectList);
   };
 
+  const addDefaultProjects = () => {
+    addProjectToList("msg", Project({ title: "Estudiar", UID: uid() }));
+    addProjectToList("msg", Project({ title: "Entrenar", UID: uid() }));
+    addProjectToList("msg", Project({ title: "Compras", UID: uid() }));
+
+    addTaskToProject("msg", {
+      projectName: "Estudiar",
+      task: {
+        UID: uid(),
+        title: "Javascript",
+        description: "fundamentos",
+        dueDate: "2022-01-30",
+        priority: "High",
+      },
+    });
+
+    addTaskToProject("msg", {
+      projectName: "Entrenar",
+      task: {
+        UID: uid(),
+        title: "Workout",
+        description: "2pm-5pm",
+        dueDate: "2022-01-20",
+        priority: "High",
+      },
+    });
+
+    addTaskToProject("msg", {
+      projectName: "Compras",
+      task: {
+        UID: uid(),
+        title: "SuperMarket",
+        description: "todo lo necesario",
+        dueDate: "2022-01-20",
+        priority: "High",
+      },
+    });
+  };
+
+  const InitDeafualtProjectList = (msg, storageList) => {
+    if (storageList) {
+      const defaultProjectList = storageList[0];
+      renderActualProject("text", defaultProjectList.title);
+    } else {
+      addDefaultProjects();
+    }
+  };
+
+  const renderActualProject = (msg, projectName) => {
+    const projectTitle = getProject(projectName).title;
+    const taskList = getProject(projectName).tasks;
+    PubSub.publish(RENDER_TASKS_TITLE, {
+      title: projectTitle,
+      tasks: taskList,
+    });
+  };
+
   PubSub.subscribe(UPDATE_PROJECT_LIST, updateProjecList);
+  PubSub.subscribe(UPDATE_PROJECT_LIST, InitDeafualtProjectList);
   PubSub.subscribe(NOTIFY_NEW_PROJECT, addProjectToList);
   PubSub.subscribe(NOTIFY_NEW_TASK, addTaskToProject);
   PubSub.subscribe(GET_ACTUAL_PROJECT, setActualProject);
   PubSub.subscribe(REMOVE_PROJECT, removeProject);
   PubSub.subscribe(REMOVE_TASK, removeTask);
+  PubSub.subscribe(INIT_ACTUAL_PROJECT, renderActualProject);
 })();
 export default moduleLogic;
